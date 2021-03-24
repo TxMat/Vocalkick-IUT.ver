@@ -42,6 +42,12 @@ async def noo(message, *args):
   log = "no"
   print(log)
 
+async def rr(message, *args):
+  await message.delete()
+  await message.channel.send("https://www.renater.fr/sites/default/files/weathermap/weathermap_france_v2.png")
+  log = "get renated"
+  print(log)
+
 async def bott(message, *args):
     user = client.get_user(args[0])
     await client.wait_until_ready()
@@ -63,7 +69,8 @@ actions = {
     "help": helpp,
     "no": noo,
     "up": statt,
-    "age": bott
+    "age": bott,
+    "r": rr
 }
 perm_actions = ["option"]
 admin_actions = ["desc"]
@@ -75,7 +82,6 @@ badwords = [
 
 @client.event
 async def on_message(message):
-    
     if type(message.channel) != discord.TextChannel:
         if message.author.id == 697343120433741947:
             return
@@ -124,6 +130,12 @@ async def on_message(message):
         log = "executing command:", message.content, "by :", message.author
         print(log)
         await actions[a[0]](message, *a[1:])
+
+    a = message.content.split(" ")
+    for x in a:
+      if x == "<@!799758816773799948>":
+        await message.add_reaction("👀")
+        return
 
 
 @client.event
