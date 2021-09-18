@@ -79,7 +79,7 @@ perm_actions = ["option"]
 admin_actions = ["desc"]
 
 badwords = [
-    "tg", "ntm", "pd", "fdp", "suce", "ftg", "salope", "encule", "enculé", "connard"
+    "tg", "ntm", "pd", "fdp", "suce", "ftg", "salope", "encule", "enculé", "connard", "pute"
 ]
 
 reponses = [
